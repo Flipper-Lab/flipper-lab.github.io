@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="ru" data-bs-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<!-- Стиляшки :P -->
+<link rel="stylesheet" href="style/css/bootstrap.min.css">
+<link rel="stylesheet" href="style/css/index.css">
+
+<title>Flipper Zero Documentation - RU</title>
+
+</head>
+
+<body>
+    <div class="app">
+        <!-- Мобильная кнопка меню -->
+        <button class="mobile-menu-toggle" id="mobileMenuToggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <!-- Затемнение для мобильного меню -->
+        <div class="mobile-overlay" id="mobileOverlay"></div>
+
+        <aside class="sidebar" id="sidebar">
+            <div class="brand">
+                <div class="brand-logo">🐬</div>
+                <div class="brand-name">Шлипер зеро</div>
+                <button class="sidebar-close" id="sidebarClose">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        <path d="M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                </button>
+            </div>
+            
+            <div class="search">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 21l-4.35-4.35" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    <circle cx="11" cy="11" r="8" stroke="currentColor" stroke-width="2"/>
+                </svg>
+                <input id="searchInput" type="search" placeholder="Поиск...">
+                <button class="search-clear" type="button">×</button>
+            </div>
+            
+            <nav class="menu">
+                <div class="nav-section">
+                    <ul class="nav nav-column" id="nav-basics">
+                        <li><a href="#start.html" data-path="start.html">Шлипер зеро документация</a></li>
+                    </ul>
+                </div>
+
+                <div class="nav-section">
+                    <div class="section-header" data-section="basics">
+                        <span class="section-title">Основы</span>
+                        <svg class="section-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <ul class="nav nav-column" id="nav-basics">
+                        <li><a href="#/basic/page.html" data-path="basic/page.html">Page</a></li>
+                    </ul>
+                </div>
+
+            </nav>
+
+            <div class="sidebar-footer">
+                <a href="https://github.com/Flipper-Lab/Flipper-Lab.github.io" class="text-decoration-none" target="_blank">
+                    <small>GitHub</small>
+                </a>
+            </div>
+        </aside>
+        
+        <main class="content">
+            <section class="main" id="appContent">
+                <div class="welcome-message">
+                    <h1 class="display-6 mb-4">Добро пожаловать.</h1>
+                    <p class="lead text-muted">Выберите раздел документации в левом меню</p>
+                    <div class="loading-spinner mt-4">
+                        <div class="spinner-border text-primary" role="status">
+                            <span class="visually-hidden">Загрузка...</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+<!-- Скриптики :P -->
+<script src="style/js/bootstrap.bundle.min.js"></script>
+<script src="style/js/router.js"></script>
+<script src="style/js/navigation.js"></script>
+<script src="style/js/search.js"></script>
+<script src="style/js/app.js"></script>
+
+</body>
+</html>
