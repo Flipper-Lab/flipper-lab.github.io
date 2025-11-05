@@ -8,7 +8,7 @@
       }
   
       if (!location.hash || location.hash === '#') {
-        window.router.navigateTo('start.html');
+        window.router.navigateTo('menu/start.html');
       } else {
         window.router.router();
       }

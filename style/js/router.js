@@ -19,16 +19,16 @@ class Router {
       window.addEventListener('hashchange', () => this.handleRoute());
       
       if (!location.hash || location.hash === '#') {
-          this.navigateTo('start.html');
+          this.navigateTo('menu/start.html');
       } else {
           setTimeout(() => this.handleRoute(), 10);
       }
   }
 
   normalizePath(raw) {
-      if (!raw || raw === '#') return 'start.html';
+      if (!raw || raw === '#') return 'menu/start.html';
       let path = raw.replace(/^#\/?/, '');
-      if (path === '' || path === '/') return 'start.html';
+      if (path === '' || path === '/') return 'menu/start.html';
       
       if (!path.includes('.') && !path.endsWith('/')) {
           path += '.html';
@@ -127,7 +127,7 @@ class Router {
               <button onclick="router.loadContent('${path}')" class="retry-btn">
                   Повторить попытку
               </button>
-              <button onclick="router.navigateTo('start.html')" class="home-btn">
+              <button onclick="router.navigateTo('menu/start.html')" class="home-btn">
                   На главную
               </button>
           </div>
