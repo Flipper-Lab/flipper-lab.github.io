@@ -1,0 +1,113 @@
+<article>
+    <h1>Установка microSD карты</h1>
+
+    <p>На карте microSD хранятся ключи, карты, пульты, базы данных и другие данные. Flipper Zero поддерживает карты до 256 ГБ через интерфейс SPI, но обычной карты на 16-32 ГБ хватит для всего необходимого. Учтите, что карты большего объема устройство может определять дольше.</p>
+    <p>Flipper Zero использует более медленный и энергоэффективный интерфейс SPI. Несмотря на то, что SPI-интерфейс медленнее SDIO, он способен считывать данные со скоростью почти 614.4 килобайта в секунду, что достаточно для задач устройства.</p>
+
+    <div class="col-md-6 mb-4">
+        <div class="card h-100 border-primary">
+            <div class="card-body">
+                <p>Используйте качественную microSD карту</p>
+                <ul class="small">
+                    <li>Важно использовать качественные microSD карты известных брендов, таких как <b>SanDisk</b>, <b>Kingston</b> и других, чтобы обеспечить корректную работу вашего Flipper Zero. Использование некачественных карт может не только привести к плохой производительности, но и <b>повредить ваше устройство</b>.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <h1>Установка карты microSD в Flipper Zero</h1>
+    <p>Чтобы вставить карту microSD в Flipper Zero, выполните следующие действия:</p>
+
+    <ul class="small list-unstyled">
+        <li class="d-flex align-items-start mb-2">
+            <i class="bi bi-1-circle-fill me-2 flex-shrink-0"></i>
+            <span>Найдите слот для карты microSD на Flipper Zero — он находится в нижней части устройства.</span>
+        </li>
+        <li class="d-flex align-items-start mb-2">
+            <i class="bi bi-2-circle-fill me-2 flex-shrink-0"></i>
+            <span>Держите карту microSD контактами вверх. Аккуратно вставьте её до щелчка в слот.</span>
+        </li>
+        <li class="d-flex align-items-start mb-2">
+            <i class="bi bi-3-circle-fill me-2 flex-shrink-0"></i>
+            <span>Убедитесь, что Flipper Zero распознал карту microSD — в левом верхнем углу экрана должен появиться значок карты.</span>
+        </li>
+    </ul>
+
+    <h1>Если ваш Flipper Zero не распознает карту</h1>
+    <p>Если вы видите на экране сообщение "Mounting sd card failed" после установки карты microSD, это может быть вызвано одной из следующих причин:</p>
+
+    <ul class="small list-unstyled">
+        <li class="d-flex align-items-start mb-2">
+            <i class="bi bi-1-circle-fill me-2 flex-shrink-0"></i>
+            <span>Файловая система карты microSD отличается от FAT12, FAT16, FAT32 или exFAT. -> Отформатируйте карту microSD.</span>
+        </li>
+
+        <li class="d-flex align-items-start mb-2">
+            <i class="bi bi-2-circle-fill me-2 flex-shrink-0"></i>
+            <span>На карте microSD отсутствует файловая система. -> Отформатируйте карту microSD в формате: FAT12, FAT16, FAT32 или exFAT.</span>
+        </li>
+
+        <li class="d-flex align-items-start mb-2">
+            <i class="bi bi-3-circle-fill me-2 flex-shrink-0"></i>
+            <span>В слоте для карты microSD скопилась пыль. -> Осторожно очистите слот сжатым воздухом.</span>
+        </li>
+        
+        <li class="d-flex align-items-start mb-2">
+            <i class="bi bi-4-circle-fill me-2 flex-shrink-0"></i>
+            <span>У карты microSD нет интерфейса SPI. -> Попробуйте использовать другую карту microSD.</span>
+        </li>
+
+        
+        <li class="d-flex align-items-start mb-2">
+            <i class="bi bi-5-circle-fill me-2 flex-shrink-0"></i>
+            <span>Карта microSD повреждена. -> Попробуйте использовать другую карту microSD.</span>
+        </li>
+    </ul>
+
+    <h1>Форматирование карты microSD</h1>
+    <p>Иногда карта microSD может не монтироваться корректно. Это может произойти, если на ней используется несовместимая файловая система или она вообще отсутствует. Если Flipper Zero не распознаёт карту после установки, попробуйте отформатировать её.</p>
+    <p>Вы можете отформатировать карту microSD с помощью Flipper Zero. Для этого выполните следующие действия:</p>
+
+    <ul class="small list-unstyled">
+        <li class="d-flex align-items-start mb-2">
+            <i class="bi bi-1-circle-fill me-2 flex-shrink-0"></i>
+            <span>Перейдите в меню -> Settings -> Storage.</span>
+        </li>
+
+        <li class="d-flex align-items-start mb-2">
+            <i class="bi bi-2-circle-fill me-2 flex-shrink-0"></i>
+            <span>Выберите «Format SD Card» и нажмите <i class="bi bi-caret-right-fill"></i> Вправо, чтобы отформатировать.</span>
+        </li>
+
+        <li class="d-flex align-items-start mb-2">
+            <i class="bi bi-3-circle-fill me-2 flex-shrink-0"></i>
+            <span>Обновите прошивку</span>
+        </li>
+    </ul>
+
+    <h1>Если форматирование через Flipper Zero не удалось</h1>
+    <p>Если форматирование с помощью Flipper Zero не помогло, вы можете попробовать отформатировать карту microSD с помощью ПК или попробовать другую карту microSD.</p>
+
+    <h1>Безопасное извлечение карты microSD</h1>
+    <p>При использовании карты microSD Flipper Zero считывает с неё данные и записывает их на неё. Извлечение карты во время её использования устройством может привести к повреждению данных или файловой системы карты.</p>
+
+    <p>Чтобы безопасно извлечь карту microSD из Flipper Zero, выполните следующие действия:</p>
+
+    <ul class="small list-unstyled">
+        <li class="d-flex align-items-start mb-2">
+            <i class="bi bi-1-circle-fill me-2 flex-shrink-0"></i>
+            <span>Перейдите в меню -> Settings -> Storage.</span>
+        </li>
+
+        <li class="d-flex align-items-start mb-2">
+            <i class="bi bi-2-circle-fill me-2 flex-shrink-0"></i>
+            <span>Выберите «Unmount SD» и и нажмите <i class="bi bi-caret-right-fill"></i> Вправо, чтобы извлечь карту.</span>
+        </li>
+
+        <li class="d-flex align-items-start mb-2">
+            <i class="bi bi-3-circle-fill me-2 flex-shrink-0"></i>
+            <span>Получив уведомление о том, что карта microSD может быть извлечена, извлеките карту из Flipper Zero, аккуратно нажав и потянув ее на себя.</span>
+        </li>
+    </ul>
+
+</article>
