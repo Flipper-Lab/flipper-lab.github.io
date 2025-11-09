@@ -544,6 +544,8 @@ mark {
 }
 
 .app-card {
+    position: relative;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
     background: var(--bs-dark);
     border: 1px solid rgba(148, 163, 184, 0.1);
     border-radius: 8px;
@@ -667,6 +669,11 @@ mark {
     .action {
         padding: 0.4rem 0.25rem;
     }
+
+    .region-countries {
+        font-size: 0.8rem;
+        padding: 0.5rem;
+    }
 }
 
 @media (max-width: 480px) {
@@ -704,4 +711,11 @@ mark {
 
 .text-muted {
     color: #64748b !important;
+}
+
+.region-countries {
+    padding: 0.75rem;
+    font-size: 0.95rem;
+    color: var(--bs-light);
+    line-height: 1.4;
 }
