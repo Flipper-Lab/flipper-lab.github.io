@@ -465,13 +465,14 @@ mark {
 .content h1 {
     font-size: 2.25rem;
     font-weight: 700;
-    border-bottom: 2px solid var(--bs-primary);
-    padding-bottom: 0.5rem;
+    margin-bottom: 0rem;
 }
 
 .content h2 {
     font-size: 1.875rem;
     font-weight: 600;
+    border-top: 2px solid var(--bs-primary);
+    padding-top: 2rem;
 }
 
 .content h3 {
@@ -479,8 +480,13 @@ mark {
     font-weight: 600;
 }
 
+.content h4 {
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
 .content p {
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
     line-height: 1.7;
 }
 
