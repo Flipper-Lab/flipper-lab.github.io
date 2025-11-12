@@ -1,0 +1,235 @@
+<article>
+    <h1>Формат файла BadUSB</h1>
+
+    <p><a href="https://developer.flipper.net/flipperzero/doxygen/badusb_file_format.html">Официальная документация</a>
+    </p>
+
+    <h2>Синтаксис команды</h2>
+    <p>Приложение BadUsb использует расширенный синтаксис Duckyscript. Оно совместимо с классическими скриптами USB
+        Rubber
+        Ducky 1.0, но предоставляет ряд дополнительных команд и функций, таких как настраиваемый USB-идентификатор,
+        метод
+        ввода ALT+Numpad, команда SYSRQ и больше функциональных клавиш.</p>
+
+    <h2>Формат файла скрипта</h2>
+    <p>Приложение BadUsb может выполнять только текстовые скрипты из TXT-файлов, компиляция не требуется. Поддерживаются
+        символы \n и \r\n в конце строк. Пустые строки разрешены. Для отступов строк можно использовать пробелы или
+        табуляции.</p>
+
+    <h2>Набор команд</h2>
+
+    <h3>Строка комментария</h3>
+    <div class="content-card">
+        <div class="apps-grid">
+            <div class="app-card">
+                <div class="app-header">REM текст.</div>
+                <div class="app-actions">
+                    <div class="action"><span>Интерпретатор проигнорирует весь текст после команды REM.</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h3>Задержки</h3>
+    <div class="content-card">
+        <div class="apps-grid">
+            <div class="app-card">
+                <div class="app-header">DELAY значение задержки в мс.</div>
+                <div class="app-actions">
+                    <div class="action"><span>Задержка в определенном месте скрипта</span></div>
+                </div>
+            </div>
+
+            <div class="app-card">
+                <div class="app-header">DEFAULT_DELAY значение задержки в мс.</div>
+                <div class="app-actions">
+                    <div class="action"><span>Добавлять задержку перед каждой следующей командой.</span></div>
+                </div>
+            </div>
+
+            <div class="app-card">
+                <div class="app-header">DEFAULTDELAY значение задержки в мс.</div>
+                <div class="app-actions">
+                    <div class="action"><span>То же, что и DEFAULT_DELAY</span></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <h3>Специальные клавиши</h3>
+    <div class="content-card">
+        <div class="apps-grid">
+            <div class="app-card">
+                <div class="app-header">DOWNARROW / DOWN</div>
+                <div class="app-actions">
+                    <div class="action"><span>Стрелка вниз</span></div>
+                </div>
+            </div>
+
+            <div class="app-card">
+                <div class="app-header">LEFTARROW / LEFT</div>
+                <div class="app-actions">
+                    <div class="action"><span>Стрелка влево</span></div>
+                </div>
+            </div>
+
+            <div class="app-card">
+                <div class="app-header">RIGHTARROW / RIGHT</div>
+                <div class="app-actions">
+                    <div class="action"><span>Стрелка вправо</span></div>
+                </div>
+            </div>
+
+            <div class="app-card">
+                <div class="app-header">UPARROW / UP</div>
+                <div class="app-actions">
+                    <div class="action"><span>Стрелка вверх</span></div>
+                </div>
+            </div>
+
+            <div class="app-card">
+                <div class="app-header">ENTER</div>
+                <div class="app-actions">
+                    <div class="action"><span>Клавиша Enter</span></div>
+                </div>
+            </div>
+
+            <div class="app-card">
+                <div class="app-header">DELETE</div>
+                <div class="app-actions">
+                    <div class="action"><span>Клавиша Delete</span></div>
+                </div>
+            </div>
+
+            <div class="app-card">
+                <div class="app-header">BACKSPACE</div>
+                <div class="app-actions">
+                    <div class="action"><span>Клавиша Backspace</span></div>
+                </div>
+            </div>
+
+            <div class="app-card">
+                <div class="app-header">END</div>
+                <div class="app-actions">
+                    <div class="action"><span>Клавиша End</span></div>
+                </div>
+            </div>
+
+            <div class="app-card">
+                <div class="app-header">HOME</div>
+                <div class="app-actions">
+                    <div class="action"><span>Клавиша Home</span></div>
+                </div>
+            </div>
+
+            <div class="app-card">
+                <div class="app-header">ESCAPE / ESC</div>
+                <div class="app-actions">
+                    <div class="action"><span>Клавиша Escape</span></div>
+                </div>
+            </div>
+
+            <div class="app-card">
+                <div class="app-header">INSERT</div>
+                <div class="app-actions">
+                    <div class="action"><span>Клавиша Insert</span></div>
+                </div>
+            </div>
+
+            <div class="app-card">
+                <div class="app-header">PAGEUP</div>
+                <div class="app-actions">
+                    <div class="action"><span>Клавиша Page Up</span></div>
+                </div>
+            </div>
+
+            <div class="app-card">
+                <div class="app-header">PAGEDOWN</div>
+                <div class="app-actions">
+                    <div class="action"><span>Клавиша Page Down</span></div>
+                </div>
+            </div>
+
+            <div class="app-card">
+                <div class="app-header">CAPSLOCK</div>
+                <div class="app-actions">
+                    <div class="action"><span>Клавиша Caps Lock</span></div>
+                </div>
+            </div>
+
+            <div class="app-card">
+                <div class="app-header">NUMLOCK</div>
+                <div class="app-actions">
+                    <div class="action"><span>Клавиша Num Lock</span></div>
+                </div>
+            </div>
+
+            <div class="app-card">
+                <div class="app-header">SCROLLLOCK</div>
+                <div class="app-actions">
+                    <div class="action"><span>Клавиша Scroll Lock</span></div>
+                </div>
+            </div>
+
+            <div class="app-card">
+                <div class="app-header">PRINTSCREEN</div>
+                <div class="app-actions">
+                    <div class="action"><span>Клавиша Print Screen</span></div>
+                </div>
+            </div>
+
+            <div class="app-card">
+                <div class="app-header">BREAK</div>
+                <div class="app-actions">
+                    <div class="action"><span>Клавиша Pause/Break</span></div>
+                </div>
+            </div>
+
+            <div class="app-card">
+                <div class="app-header">PAUSE</div>
+                <div class="app-actions">
+                    <div class="action"><span>Клавиша Pause/Break</span></div>
+                </div>
+            </div>
+
+            <div class="app-card">
+                <div class="app-header">SPACE</div>
+                <div class="app-actions">
+                    <div class="action"><span>Пробел</span></div>
+                </div>
+            </div>
+
+            <div class="app-card">
+                <div class="app-header">TAB</div>
+                <div class="app-actions">
+                    <div class="action"><span>Клавиша Tab</span></div>
+                </div>
+            </div>
+
+            <div class="app-card">
+                <div class="app-header">MENU</div>
+                <div class="app-actions">
+                    <div class="action"><span>Клавиша контекстного меню</span></div>
+                </div>
+            </div>
+
+            <div class="app-card">
+                <div class="app-header">APP</div>
+                <div class="app-actions">
+                    <div class="action"><span>То же, что и MENU</span></div>
+                </div>
+            </div>
+
+            <div class="app-card">
+                <div class="app-header">Fx</div>
+                <div class="app-actions">
+                    <div class="action"><span>Клавиша F1-F12</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <p>тут fazzyt устал 😴</p>
+    <!--#TODO закончить-->
+</article>

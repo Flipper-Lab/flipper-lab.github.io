@@ -1,0 +1,141 @@
+<article>
+    <h1>Bad USB</h1>
+
+    <p>Flipper Zero может выступать в роли устройства BadUSB, распознаваемого компьютерами как устройство интерфейса
+        пользователя (<a href="https://en.wikipedia.org/wiki/Human_interface_device">HID</a>), например, клавиатура или
+        мышь. Устройство BadUSB может изменять настройки,
+        открывать бэкдоры, извлекать данные и выполнять практически любые действия,
+        доступные при физическом доступе к ПК. Это осуществляется путём выполнения набора команд, написанных на языке
+        сценариев Rubber Ducky, также известном как DuckyScript. Этот набор команд также называется полезной нагрузкой.
+    </p>
+
+    <p>На этой странице вы узнаете о принципах работы BadUSB и о том, как превратить Flipper Zero в одно из
+        них. Обратите внимание, что Flipper Zero можно подключить к компьютеру не только по USB, но и по Bluetooth Low
+        Energy (BLE).
+    </p>
+
+    <h1>Язык сценариев Flipper Zero</h1>
+
+    <p>Перед использованием Flipper Zero в качестве устройства BadUSB необходимо записать полезную нагрузку в формате
+        .txt в любом распространённом текстовом редакторе ASCII с использованием языка сценариев. Flipper Zero может
+        выполнять расширенный синтаксис скриптов Rubber Ducky. Синтаксис совместим с классическим языком сценариев
+        <a href="#/bad_usb/bad_usb_format.html" data-path="bad_usb/bad_usb_format.html">Rubber Ducky 1.0</a>, но
+        предоставляет дополнительные команды и функции, такие как метод ввода ALT+Numpad, команда
+        SysRq и многое другое.
+    </p>
+
+    <h1>Загрузка новых скриптов на Flipper Zero</h1>
+
+    <p>После создания скрипта вы можете загрузить его на Flipper Zero через qFlipper или мобильное приложение
+        в папку SD Card/badusb/. Новые скрипты будут доступны в приложении Bad USB.</p>
+
+    <h1>Использование Flipper Zero в качестве устройства BadUSB</h1>
+
+    <p>Через USB</p>
+    <ul class="small list-unstyled">
+        <li class="d-flex align-items-start mb-2">
+            <i class="bi bi-1-circle-fill me-2 flex-shrink-0"></i>
+            <span>Если на вашем компьютере запущен qFlipper, закройте его.</span>
+        </li>
+
+        <li class="d-flex align-items-start mb-2">
+            <i class="bi bi-2-circle-fill me-2 flex-shrink-0"></i>
+            <span>На Flipper Zero перейдите в Главное меню -> Bad USB.</span>
+        </li>
+
+        <li class="d-flex align-items-start mb-2">
+            <i class="bi bi-3-circle-fill me-2 flex-shrink-0"></i>
+            <span>Выберите полезную нагрузку.</span>
+        </li>
+
+        <li class="d-flex align-items-start mb-2">
+            <i class="bi bi-4-circle-fill me-2 flex-shrink-0"></i>
+            <span>Убедитесь, что приложение Bad USB находится в режиме USB.
+                <p>Чтобы переключиться в режим USB, нажмите <img src="content/assets/UI/Controls/right.svg" width="24"
+                        height="24" /> USB.</p>
+            </span>
+            <!--#TODO тут возможно картинка с показанием мода-->
+        </li>
+
+        <li class="d-flex align-items-start mb-2">
+            <i class="bi bi-5-circle-fill me-2 flex-shrink-0"></i>
+            <span>При необходимости вы можете изменить раскладку клавиатуры (по умолчанию используется US English),
+                нажав <img src="content/assets/UI/Controls/left.svg" width="24" height="24" /> «Layout» и выбрав ее из
+                списка раскладок.</span>
+        </li>
+
+        <li class="d-flex align-items-start mb-2">
+            <i class="bi bi-6-circle-fill me-2 flex-shrink-0"></i>
+            <span>Подключите Flipper Zero к компьютеру с помощью USB-кабеля.</span>
+        </li>
+
+        <li class="d-flex align-items-start mb-2">
+            <i class="bi bi-7-circle-fill me-2 flex-shrink-0"></i>
+            <span>Нажмите кнопку <img src="content/assets/UI/Controls/ok.svg" width="24" height="24" /> «Run», чтобы
+                запустить полезную нагрузку на компьютере.</span>
+        </li>
+    </ul>
+
+    <p>Через BLE</p>
+    <ul class="small list-unstyled">
+        <li class="d-flex align-items-start mb-2">
+            <i class="bi bi-1-circle-fill me-2 flex-shrink-0"></i>
+            <span>Активируйте Bluetooth на Flipper Zero, перейдя в Главное меню -> Settings -> Bluetooth.</span>
+        </li>
+
+        <li class="d-flex align-items-start mb-2">
+            <i class="bi bi-2-circle-fill me-2 flex-shrink-0"></i>
+            <span>Если на вашем компьютере запущен qFlipper, закройте его.</span>
+        </li>
+
+        <li class="d-flex align-items-start mb-2">
+            <i class="bi bi-3-circle-fill me-2 flex-shrink-0"></i>
+            <span>На Flipper Zero перейдите в Главное меню -> Bad USB.</span>
+        </li>
+
+        <li class="d-flex align-items-start mb-2">
+            <i class="bi bi-4-circle-fill me-2 flex-shrink-0"></i>
+            <span>Выберите полезную нагрузку.</span>
+        </li>
+
+        <li class="d-flex align-items-start mb-2">
+            <i class="bi bi-5-circle-fill me-2 flex-shrink-0"></i>
+            <span>Убедитесь, что приложение Bad USB находится в режиме BLE.
+                <p>Чтобы переключиться в режим BLE, нажмите <img src="content/assets/UI/Controls/right.svg" width="24"
+                        height="24" /> BLE.</p>
+            </span>
+            <!--#TODO тут возможно картинка с показанием мода-->
+        </li>
+
+        <li class="d-flex align-items-start mb-2">
+            <i class="bi bi-6-circle-fill me-2 flex-shrink-0"></i>
+            <span>При необходимости вы можете изменить раскладку клавиатуры (по умолчанию используется US English),
+                нажав <img src="content/assets/UI/Controls/left.svg" width="24" height="24" /> «Config» и выбрав ее из
+                списка раскладок.</span>
+        </li>
+
+        <li class="d-flex align-items-start mb-2">
+            <i class="bi bi-7-circle-fill me-2 flex-shrink-0"></i>
+            <span>На компьютере перейдите в настройки Bluetooth и подключитесь к обнаруженному беспроводному устройству
+                BadUSB.</span>
+        </li>
+
+
+        <li class="d-flex align-items-start mb-2">
+            <i class="bi bi-8-circle-fill me-2 flex-shrink-0"></i>
+            <span>Подтвердите соединение на компьютере и Flipper Zero (нажав кнопку «ОК» на обоих устройствах).</span>
+        </li>
+
+        <li class="d-flex align-items-start mb-2">
+            <i class="bi bi-9-circle-fill me-2 flex-shrink-0"></i>
+            <span>Нажмите кнопку <img src="content/assets/UI/Controls/ok.svg" width="24" height="24" /> «Run», чтобы
+                запустить полезную нагрузку на компьютере.</span>
+        </li>
+
+        <li class="d-flex align-items-start mb-2">
+            <i class="bi bi-10-circle-fill me-2 flex-shrink-0"></i>
+            <span>Чтобы отключить Flipper Zero от ПК, перейдите в раздел «Config» и выберите «Remove Pairing».</span>
+        </li>
+    </ul>
+
+</article>
