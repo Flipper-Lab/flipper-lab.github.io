@@ -1,0 +1,145 @@
+<article>
+
+  <h1>Чтение 125 kHz RFID карт</h1>
+
+  <p>Flipper Zero позволяет вам читать, сохранять и эмулировать 125 kHz RFID карты. 125 kHz RFID карта - это <a href="https://en.wikipedia.org/wiki/Transponder">транспондер</a>, который хранит уникальный идентификационный номер. При сканировании считывателем, 125 kHz карта передаёт свой ID номер. Если карта использует поддерживаемый протокол, Flipper Zero может прочитать и сохранить ID номер.</p>
+
+  <p>На этой странице вы узнаете как читать, сохранять и эмулировать 125 kHz RFID карты с вашим Flipper Zero.</p>
+
+  <h2>Поддерживаемые протоколы</h2>
+
+  <p>Flipper Zero может читать 125 kHz RFID карты со следующими протоколами:</p>
+
+  <ul>
+    <li><span>EM-Micro EM4100</span></li>
+    <li><span>EM-Micro EM4100/32</span></li>
+    <li><span>EM-Micro EM4100/16</span></li>
+    <li><span>HID H10301</span></li>
+    <li><span>IDTECK Idteck</span></li>
+    <li><span>Motorola Indala 26</span></li>
+    <li><span>Kantech IoProx XSF</span></li>
+    <li><span>AWID</span></li>
+    <li><span>FECAVA FDX-A</span></li>
+    <li><span>ISO FDX-B</span></li>
+    <li><span>Generic HID Prox</span></li>
+    <li><span>Generic HID Ext</span></li>
+    <li><span>Farpointe Pyramid</span></li>
+    <li><span>Viking</span></li>
+    <li><span>Jablotron</span></li>
+    <li><span>Paradox</span></li>
+    <li><span>PAC Stanley</span></li>
+    <li><span>Keri</span></li>
+    <li><span>Gallagher</span></li>
+    <li><span>Honeywell Nexwatch</span></li>
+    <li><span>Electra</span></li>
+    <li><span>Securakey</span></li>
+    <li><span>Guardall G-Prox II</span></li>
+    <li><span>Noralsy</span></li>
+  </ul>
+
+  <h2>Как читать 125 kHz карты</h2>
+
+  <p>Чтобы прочитать и сохранить данные 125 kHz карты, выполните следующие действия:</p>
+
+  <ul class="small list-unstyled">
+    <li class="d-flex align-items-start mb-2">
+      <i class="bi bi-1-circle-fill me-2 flex-shrink-0"></i>
+      <span>Перейдите в Main Menu -> 125 kHz RFID.</span>
+    </li>
+
+    <li class="d-flex align-items-start mb-2">
+      <i class="bi bi-2-circle-fill me-2 flex-shrink-0"></i>
+      <span>
+        Нажмите Read, затем поднесите карту к задней части вашего Flipper Zero.
+      </span>
+      <div class="col-md-6 mb-4">
+        <div class="card h-100 border-primary">
+            <div class="card-body">
+                <ul class="small">
+                    <li>Не двигайте карту во время чтения. Процесс чтения может занять несколько секунд потому что Flipper Zero переключает кодировки и пытается подобрать протокол карты из списка поддерживаемых протоколов.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+      <span>Во время чтения Flipper Zero переключается между ASK и PSK кодировками каждые три секунды для чтения данных с 125 kHz RFID карты.</span>
+    </li>
+
+    <li class="d-flex align-items-start mb-2">
+      <i class="bi bi-3-circle-fill me-2 flex-shrink-0"></i>
+      <span>После завершения чтения вы увидите данные карты на экране.</span>
+    </li>
+
+    <li class="d-flex align-items-start mb-2">
+      <i class="bi bi-4-circle-fill me-2 flex-shrink-0"></i>
+      <span>Чтобы сохранить карту, перейдите в More -> Save.</span>
+    </li>
+
+    <li class="d-flex align-items-start mb-2">
+      <i class="bi bi-5-circle-fill me-2 flex-shrink-0"></i>
+      <span>Назовите карту, затем нажмите Save.</span>
+    </li>
+  </ul>
+
+  <h3>Если чтение не удалось</h3>
+
+  <ul>
+    <li><span>Карта может использовать NFC технологию. -> Прочитайте карту с помощью <a href="#/nfc/nfc.html" data-path="nfc/nfc.html">NFC приложения</a>.</span></li>
+    <li><span>Flipper Zero переключает кодировки каждые три секунды. Некоторые карты могут не быть прочитаны, так как это может потребовать до 10 секунд для чтения данных. -> Прочитайте карту с предварительно выбранной ASK или PSK кодировкой.</span></li>
+  </ul>
+
+  <h2>Чтение с предварительно выбранной кодировкой</h2>
+
+  <p>Flipper Zero позволяет вам читать 125 kHz RFID карты с предварительно выбранной ASK или PSK кодировкой.</p>
+  <p>Чтобы прочитать и сохранить данные 125 kHz карты с предварительно выбранной кодировкой, выполните следующие действия:</p>
+
+  <ul class="small list-unstyled">
+    <li class="d-flex align-items-start mb-2">
+      <i class="bi bi-1-circle-fill me-2 flex-shrink-0"></i>
+      <span>Перейдите в Main Menu -> 125 kHz RFID -> Extra Actions.</span>
+    </li>
+
+    <li class="d-flex align-items-start mb-2">
+      <i class="bi bi-2-circle-fill me-2 flex-shrink-0"></i>
+      <span>Выберите Read ASK или Read PSK.</span>
+    </li>
+
+    <li class="d-flex align-items-start mb-2">
+      <i class="bi bi-3-circle-fill me-2 flex-shrink-0"></i>
+      <span>Поднесите карту к задней части вашего Flipper Zero.</span>
+    </li>
+
+    <li class="d-flex align-items-start mb-2">
+      <i class="bi bi-4-circle-fill me-2 flex-shrink-0"></i>
+      <span>После чтения, перейдите в More -> Save.</span>
+    </li>
+
+    <li class="d-flex align-items-start mb-2">
+      <i class="bi bi-5-circle-fill me-2 flex-shrink-0"></i>
+      <span>Назовите карту, затем нажмите Save.</span>
+    </li>
+  </ul>
+
+  <h2>Эмуляция 125 kHz RFID карт</h2>
+
+  <p>Flipper Zero может эмулировать сохранённые 125 kHz RFID карты, выполнив следующие действия:</p>
+
+  <ul class="small list-unstyled">
+    <li class="d-flex align-items-start mb-2">
+      <i class="bi bi-1-circle-fill me-2 flex-shrink-0"></i>
+      <span>Перейдите в Main Menu -> 125 kHz RFID -> Saved.</span>
+    </li>
+
+    <li class="d-flex align-items-start mb-2">
+      <i class="bi bi-2-circle-fill me-2 flex-shrink-0"></i>
+      <span>Выберите карту которую вы хотите эмулировать, затем нажмите Emulate.</span>
+    </li>
+
+    <li class="d-flex align-items-start mb-2">
+      <i class="bi bi-3-circle-fill me-2 flex-shrink-0"></i>
+      <span>Поднесите ваш Flipper Zero к считывателю, задняя часть устройства должна быть обращена к считывателю.</span>
+    </li>
+  </ul>
+
+  <!--#TODO добавить иллюстрации процесса чтения-->
+
+</article>
