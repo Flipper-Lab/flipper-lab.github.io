@@ -1,0 +1,306 @@
+<article>
+    <h1>Чтение сигналов</h1>
+
+    <p>С помощью вашего Flipper Zero вы можете читать, сохранять и эмулировать различные типы пультов управления с
+        известными протоколами.</p>
+
+    <p>Существуют пульты управления, работающие по протоколам, которые Flipper Zero еще не поддерживает. Сигналы от
+        таких пультов можно записать в формате RAW, сохранить и cэмулировать с помощью функции <a
+            href="#/sub_ghz/reading_raw_signals.html" data-path="sub_ghz/reading_raw_signals.html">Чтение RAW</a>.</p>
+
+    <p>Мы постоянно обновляем и улучшаем прошивку Flipper Zero с помощью нашего сообщества. Чтобы помочь Flipper Zero
+        поддерживать больше пультов, вы можете поделиться информацией о своем пульте на <a
+            href="https://forum.flipperzero.one/" target="_blank">форуме</a>.</p>
+
+    <p>На этой странице вы изучите, как читать и эмулировать пульты управления, определять частоту пульта, а также
+        получать сигналы на неизвестных частотах. На странице также объясняется, что делать, если Flipper Zero не может
+        прочитать сигнал с настройками по умолчанию, и имеется обзор функций Bin_RAW и Блокировка клавиатуры.</p>
+
+    <h2>Как читать сигналы</h2>
+
+    <p>В режиме чтения Flipper Zero читает и декодирует демодулированные сигналы от пультов управления на основе
+        известных протоколов. Если протокол пульта статический, Flipper Zero может сохранить и отправить сигнал.</p>
+
+    <p>Чтобы прочитать и сохранить сигнал с вашего пульта управления, выполните следующие действия:</p>
+
+    <ul class="small list-unstyled">
+        <li class="d-flex align-items-start mb-2">
+            <i class="bi bi-1-circle-fill me-2 flex-shrink-0"></i>
+            <span>Перейдите в Main Menu -> Sub-GHz.</span>
+        </li>
+        <li class="d-flex align-items-start mb-2">
+            <i class="bi bi-2-circle-fill me-2 flex-shrink-0"></i>
+            <span>Нажмите Read, затем нажмите кнопку на пульте управления, который вы хотите прочитать.
+            </span>
+        </li>
+        <li class="d-flex align-items-start mb-2">
+            <i class="bi bi-3-circle-fill me-2 flex-shrink-0"></i>
+            <span>Когда сигнал найден, нажмите OK, затем нажмите Save.</span>
+        </li>
+        <li class="d-flex align-items-start mb-2">
+            <i class="bi bi-4-circle-fill me-2 flex-shrink-0"></i>
+            <span>Назовите найденный сигнал, затем нажмите Save.</span>
+        </li>
+    </ul>
+
+    <div class="col-md-6 mb-4">
+        <div class="card h-100 border-primary">
+            <div class="card-body">
+                <p>Пульты имеют разные частоты и модуляции</p>
+                <ul class="small">
+                    <li>Для правильного чтения сигналов вам необходимо знать параметры пульта управления и настроить ваш
+                        Flipper Zero соответственно. Если Flipper Zero не может прочитать сигнал с настройками по
+                        умолчанию, вам необходимо взаимодействовать с параметрами Частоты и Модуляции в меню
+                        конфигурации.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <h2>Меню конфигурации</h2>
+
+    <p>В этом меню вы можете переключать частоты вручную и в режиме Hopping, переключать модуляции вручную и блокировать
+        клавиатуру во время сканирования сигналов. Чтобы открыть меню конфигурации, на экране сканирования нажмите
+        Config. Вы заметите следующее:</p>
+
+    <h3>Конфигурация частоты</h3>
+
+    <p>Вы можете переключать частоты, на которых Flipper Zero получает сигналы. В меню конфигурации, нажимая <img
+            src="content/assets/UI/Controls/left.svg" width="24" height="24" /> Влево или <img
+            src="content/assets/UI/Controls/right.svg" width="24" height="24" /> Вправо, вы можете вручную устанавливать
+        частоты из списка.</p>
+
+    <p>Чтобы правильно прочитать сигнал, необходимо определить частоту пульта. Для этого можно использовать функцию
+        Frequency Analyzer.</p>
+
+    <h4>Frequency Analyzer</h4>
+
+    <p>Во время анализа Flipper Zero сканирует силу сигнала на всех доступных в меню конфигурации частотах. Flipper Zero
+        отображает частоту с наивысшим значением индикатора силы сигнала (RSSI) если выше -90 <a
+            href="https://en.wikipedia.org/wiki/DBm" target="_blank">dBm</a>.</p>
+
+    <p>Чтобы определить частоту пульта, выполните следующие действия:</p>
+
+    <ul class="small list-unstyled">
+        <li class="d-flex align-items-start mb-2">
+            <i class="bi bi-1-circle-fill me-2 flex-shrink-0"></i>
+            <span>Поместите пульт управления очень близко к левой стороне (носику) вашего Flipper Zero.</span>
+        </li>
+        <div class="col-md-6 mb-4">
+            <div class="card h-100 border-primary">
+                <div class="card-body">
+                    <ul class="small">
+                        <p>Важно поместить пульт очень близко к вашему Flipper Zero, чтобы избежать анализа сигналов от
+                            других устройств.</p>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <li class="d-flex align-items-start mb-2">
+            <i class="bi bi-2-circle-fill me-2 flex-shrink-0"></i>
+            <span>Перейдите в Main Menu -> Sub-GHz -> Frequency Analyzer.
+            </span>
+        </li>
+        <li class="d-flex align-items-start mb-2">
+            <i class="bi bi-3-circle-fill me-2 flex-shrink-0"></i>
+            <span>На пульте управления нажмите и удерживайте кнопку, которую вы хотите проанализировать.</span>
+        </li>
+        <li class="d-flex align-items-start mb-2">
+            <i class="bi bi-4-circle-fill me-2 flex-shrink-0"></i>
+            <span>Просмотрите измеренное значение частоты на экране.</span>
+        </li>
+    </ul>
+
+
+    <p>Нажимая кнопку <img src="content/assets/UI/Controls/left.svg" width="24" height="24" /> Влево или <img
+            src="content/assets/UI/Controls/right.svg" width="24" height="24" /> Вправо, вы можете перейти на второй
+        экран, на котором отображаются до 15 измеренных частот. На втором экране вы можете сортировать измеренные
+        частоты, нажав кнопку OK.</p>
+
+    <div class="col-md-6 mb-4">
+        <div class="card h-100 border-primary">
+            <div class="card-body">
+                <p>Результаты анализа могут быть приблизительными</p>
+                <ul class="small">
+                    <li>Flipper Zero отображает значения, которые могут помочь вам определить полосу частот, в которой
+                        отправляется сигнал. В большинстве случаев сигналы отправляются на частотах в полосах 315, 433 и
+                        868 МГц.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+    <h2>Переключение между частотами</h2>
+
+    <p>Чтобы получить сигнал на неизвестной частоте, используйте режим Hopping. В этом режиме Flipper Zero быстро
+        переключается между доступными частотами и измеряет силу сигнала. Как только сила сигнала превышает -90 dBm,
+        переключение останавливается и Flipper Zero получает сигнал на этой частоте в течение одной секунды, затем
+        переключение между частотами возобновляется.</p>
+
+    <p>Для сканирования сигналов в режиме Hopping в меню конфигурации установите Hopping на ON.</p>
+
+    <div class="col-md-6 mb-4">
+        <div class="card h-100 border-primary">
+            <div class="card-body">
+                <ul class="small">
+                    <p>Переключение между частотами требует времени, поэтому сигналы, передаваемые во время
+                        переключения, могут быть пропущены. Для лучшего приема сигнала установите фиксированную частоту,
+                        определенную с помощью Frequency Analyzer.</p>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <p>В режиме Hopping вы также можете вручную переключать модуляции.</p>
+
+    <h2>Конфигурация модуляции</h2>
+
+    <p>Чтобы захватить сигнал с пульта управления, вам необходимо настроить правильные параметры модуляции на вашем
+        Flipper Zero. Поскольку Flipper Zero не является программно определяемым радио, вам необходимо настроить
+        правильную модуляцию перед сканированием сигнала, иначе вы не получите правильные данные.</p>
+
+    <p>Flipper Zero поддерживает <a href="https://en.wikipedia.org/wiki/Amplitude_modulation"
+            target="_blank">амплитудную (AM)</a> и <a href="https://en.wikipedia.org/wiki/Frequency_modulation"
+            target="_blank">частотную (FM)</a> модуляции сигнала. В меню конфигурации, нажимая <img
+            src="content/assets/UI/Controls/left.svg" width="24" height="24" /> Влево или <img
+            src="content/assets/UI/Controls/right.svg" width="24" height="24" /> Вправо, вы можете вручную устанавливать
+        модуляции сигнала из списка:</p>
+
+    <ul>
+        <li><span>AM270: амплитудная модуляция с полосой пропускания 270 кГц.</span></li>
+        <li><span>AM650: амплитудная модуляция с полосой пропускания 650 кГц (установлена по умолчанию).</span></li>
+        <li><span>FM238: частотная модуляция с полосой пропускания 270 кГц и <a
+                    href="https://www.youtube.com/watch?v=gFu7-7lUGDg&t=142s" target="_blank">девиацией</a> 2.380371
+                кГц.</span></li>
+        <li><span>FM476: частотная модуляция с полосой пропускания 270 кГц и девиацией 47.60742 кГц.</span></li>
+    </ul>
+
+    <h2>Bin_RAW</h2>
+
+    <p>Эта опция позволяет обработку RAW сигналов, которые не были декодированы во время процесса чтения. Обработка
+        включает устранение фонового шума, удаление повторяющихся сегментов сигнала и исправление ошибок синхронизации.
+    </p>
+
+    <p>Для использования этой функции вам необходимо включить опцию Bin_RAW вручную. Кроме того, важно убедиться, что
+        параметры частоты и модуляции соответствуют вашему пульту управления для оптимальной функциональности.</p>
+
+    <h2>Блокировка клавиатуры</h2>
+
+    <p>Эта функция позволяет вам заблокировать клавиатуру, пока ваш Flipper Zero сканирует сигналы. Чтобы заблокировать
+        клавиатуру, в меню конфигурации выберите Lock Keyboard и нажмите <img src="content/assets/UI/Controls/ok.svg"
+            width="24" height="24" /> Oк.</p>
+
+    <h2>Отправка сигналов</h2>
+
+    <p>Flipper Zero может отправлять сохраненные сигналы, которые записаны на частотах, разрешенных для передачи в вашем
+        регионе.</p>
+
+    <p>Чтобы отправить сохраненный сигнал с помощью Flipper Zero, выполните следующие действия:</p>
+
+    <ul class="small list-unstyled">
+        <li class="d-flex align-items-start mb-2">
+            <i class="bi bi-1-circle-fill me-2 flex-shrink-0"></i>
+            <span>Перейдите в Main Menu -> Sub-GHz -> Saved.</span>
+        </li>
+        <li class="d-flex align-items-start mb-2">
+            <i class="bi bi-2-circle-fill me-2 flex-shrink-0"></i>
+            <span>Выберите сигнал, затем нажмите Emulate.
+            </span>
+        </li>
+        <li class="d-flex align-items-start mb-2">
+            <i class="bi bi-3-circle-fill me-2 flex-shrink-0"></i>
+            <span>Нажмите Send, чтобы отправить сохраненный сигнал.</span>
+        </li>
+    </ul>
+
+    <div class="col-md-6 mb-4">
+        <div class="card h-100 border-primary">
+            <div class="card-body">
+                <p>Некоторые частоты могут быть заблокированы для передачи в вашем регионе</p>
+                <ul class="small">
+                    <li>Flipper Zero может получать сигналы на всех частотах в операционных полосах. Однако Flipper Zero
+                        может передавать сигналы только на частотах, разрешенных для передачи в вашем регионе.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <p>Чтобы узнать больше о регионах и разрешенных частотах передачи, посетите страницу <a
+            href="#/sub_ghz/frequencies.html" data-path="sub_ghz/frequencies.html">Частоты</a>.</p>
+
+    <h2>Прослушивание рации</h2>
+
+    <p>Знаете ли вы, что вы можете слушать аналоговые рации с помощью жужжалки вашего Flipper Zero? Хотя это не было
+        первоначально предусмотрено, функции Sub-GHz Read и Read RAW позволяют это делать.</p>
+
+    <div class="col-md-6 mb-4">
+        <div class="card h-100 border-primary">
+            <div class="card-body">
+                <p>Эта функция может работать не очень хорошо</p>
+                <ul class="small">
+                    <li>Flipper Zero предназначен для приема цифровых сигналов. Когда устройство получает
+                        FM-модулированный аналоговый радиосигнал, оно обрабатывает его как цифровые данные,
+                        интерпретируя частоты выше определенного порога как 1 и ниже как 0. Кроме того, жужжалка в
+                        Flipper Zero не предназначена для воспроизведения человеческого голоса. Для эффективного
+                        использования этой функции говорите достаточно громко в рацию.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <p>Чтобы начать слушать рацию:</p>
+
+    <ul class="small list-unstyled">
+        <li class="d-flex align-items-start mb-2">
+            <i class="bi bi-1-circle-fill me-2 flex-shrink-0"></i>
+            <span>Перейдите в Main Menu -> Sub-GHz.</span>
+        </li>
+        <li class="d-flex align-items-start mb-2">
+            <i class="bi bi-2-circle-fill me-2 flex-shrink-0"></i>
+            <span>Выберите:
+                <ul>
+                    <li>Read — чтобы только слушать.</li>
+                    <li>или Read RAW — чтобы слушать и записывать.</li>
+                </ul>
+            </span>
+        </li>
+        <li class="d-flex align-items-start mb-2">
+            <i class="bi bi-3-circle-fill me-2 flex-shrink-0"></i>
+            <span>Перейдите в Config.</span>
+        </li>
+        <li class="d-flex align-items-start mb-2">
+            <i class="bi bi-4-circle-fill me-2 flex-shrink-0"></i>
+            <span>Установите Frequency на частоту рации, которую вы хотите слушать.</span>
+        </li>
+        <li class="d-flex align-items-start mb-2">
+            <i class="bi bi-5-circle-fill me-2 flex-shrink-0"></i>
+            <span>Установите Modulation на FM238.
+            </span>
+        </li>
+        <li class="d-flex align-items-start mb-2">
+            <i class="bi bi-6-circle-fill me-2 flex-shrink-0"></i>
+            <span>Установите Sound на ON.</span>
+        </li>
+        <li class="d-flex align-items-start mb-2">
+            <i class="bi bi-7-circle-fill me-2 flex-shrink-0"></i>
+            <span>(Опционально) Если вы выбрали Read RAW, вы также можете настроить RSSI Threshold, чтобы записывать
+                только сигналы, превышающие установленный уровень силы сигнала. <a
+                    href="https://docs.flipper.net/sub-ghz/read-raw#yDGEq">Узнайте больше о конфигурации RSSI
+                    Threshold</a></span>
+        </li>
+        <li class="d-flex align-items-start mb-2">
+            <i class="bi bi-8-circle-fill me-2 flex-shrink-0"></i>
+            <span>Нажмите <img src="content/assets/UI/Controls/back.svg" width="24" height="24" /> Назад.
+            </span>
+        </li>
+        <li class="d-flex align-items-start mb-2">
+            <i class="bi bi-9-circle-fill me-2 flex-shrink-0"></i>
+            <span>Если вы выбрали Read RAW, нажмите OK, чтобы начать слушать.</span>
+        </li>
+    </ul>
+
+    <p>Готово! Теперь, если человек на другом конце будет говорить достаточно громко, вы сможете услышать его голос
+        через жужжалку вашего Flipper Zero.</p>
+
+</article>
