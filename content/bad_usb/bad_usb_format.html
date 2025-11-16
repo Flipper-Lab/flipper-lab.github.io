@@ -230,6 +230,440 @@
         </div>
     </div>
 
-    <p>тут fazzyt устал 😴</p>
-    <!--#TODO закончить-->
+    <h3>Модификаторы</h3>
+    <p>Можно комбинировать несколько модификаторов через дефис или пробел.</p>
+    <div class="content-card">
+        <div class="apps-grid">
+            <div class="app-card">
+                <div class="app-header">CTRL</div>
+                <div class="app-actions">
+                    <div class="action"><span>Клавиша Control</span></div>
+                </div>
+            </div>
+
+            <div class="app-card">
+                <div class="app-header">CONTROL</div>
+                <div class="app-actions">
+                    <div class="action"><span>То же, что и CTRL</span></div>
+                </div>
+            </div>
+
+            <div class="app-card">
+                <div class="app-header">SHIFT</div>
+                <div class="app-actions">
+                    <div class="action"><span>Клавиша Shift</span></div>
+                </div>
+            </div>
+
+            <div class="app-card">
+                <div class="app-header">ALT</div>
+                <div class="app-actions">
+                    <div class="action"><span>Клавиша Alt</span></div>
+                </div>
+            </div>
+
+            <div class="app-card">
+                <div class="app-header">GUI</div>
+                <div class="app-actions">
+                    <div class="action"><span>Клавиша Windows/Command</span></div>
+                </div>
+            </div>
+
+            <div class="app-card">
+                <div class="app-header">WINDOWS</div>
+                <div class="app-actions">
+                    <div class="action"><span>То же, что и GUI</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h3>Удержание и отпускание клавиш</h3>
+    <p>Можно удерживать до 5 клавиш одновременно.</p>
+    <div class="content-card">
+        <div class="apps-grid">
+            <div class="app-card">
+                <div class="app-header">HOLD специальная_клавиша_или_символ</div>
+                <div class="app-actions">
+                    <div class="action"><span>Удерживать клавишу до команды RELEASE</span></div>
+                </div>
+            </div>
+
+            <div class="app-card">
+                <div class="app-header">RELEASE специальная_клавиша_или_символ</div>
+                <div class="app-actions">
+                    <div class="action"><span>Отпустить клавишу</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h3>Ввод текста</h3>
+    <div class="content-card">
+        <div class="apps-grid">
+            <div class="app-card">
+                <div class="app-header">STRING текст</div>
+                <div class="app-actions">
+                    <div class="action"><span>Вывести текстовую строку</span></div>
+                </div>
+            </div>
+
+            <div class="app-card">
+                <div class="app-header">STRINGLN текст</div>
+                <div class="app-actions">
+                    <div class="action"><span>Вывести текст и нажать Enter</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h3>Задержка при вводе текста</h3>
+    <div class="content-card">
+        <div class="apps-grid">
+            <div class="app-card">
+                <div class="app-header">STRING_DELAY задержка_в_мс</div>
+                <div class="app-actions">
+                    <div class="action"><span>Применить к следующей команде STRING</span></div>
+                </div>
+            </div>
+
+            <div class="app-card">
+                <div class="app-header">STRINGDELAY задержка_в_мс</div>
+                <div class="app-actions">
+                    <div class="action"><span>То же, что и STRING_DELAY</span></div>
+                </div>
+            </div>
+
+            <div class="app-card">
+                <div class="app-header">DEFAULT_STRING_DELAY задержка_в_мс</div>
+                <div class="app-actions">
+                    <div class="action"><span>Применять ко всем командам STRING</span></div>
+                </div>
+            </div>
+
+            <div class="app-card">
+                <div class="app-header">DEFAULTSTRINGDELAY задержка_в_мс</div>
+                <div class="app-actions">
+                    <div class="action"><span>То же, что и DEFAULT_STRING_DELAY</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h3>Повтор</h3>
+    <div class="content-card">
+        <div class="apps-grid">
+            <div class="app-card">
+                <div class="app-header">REPEAT количество_повторов</div>
+                <div class="app-actions">
+                    <div class="action"><span>Повторить предыдущую команду</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h3>Ввод через ALT+Numpad</h3>
+    <div class="content-card">
+        <div class="apps-grid">
+            <div class="app-card">
+                <div class="app-header">ALTCHAR код_символа</div>
+                <div class="app-actions">
+                    <div class="action"><span>Вывести один символ через ALT+Numpad</span></div>
+                </div>
+            </div>
+
+            <div class="app-card">
+                <div class="app-header">ALTSTRING текст</div>
+                <div class="app-actions">
+                    <div class="action"><span>Вывести текст через ALT+Numpad</span></div>
+                </div>
+            </div>
+
+            <div class="app-card">
+                <div class="app-header">ALTCODE текст</div>
+                <div class="app-actions">
+                    <div class="action"><span>То же, что и ALTSTRING</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h3>SysRq</h3>
+    <div class="content-card">
+        <div class="apps-grid">
+            <div class="app-card">
+                <div class="app-header">SYSRQ символ</div>
+                <div class="app-actions">
+                    <div class="action"><span>Отправить команду SysRq</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h3>Медиа-клавиши</h3>
+    <div class="content-card">
+        <div class="apps-grid">
+            <div class="app-card">
+                <div class="app-header">MEDIA POWER</div>
+                <div class="app-actions">
+                    <div class="action"><span>Питание</span></div>
+                </div>
+            </div>
+
+            <div class="app-card">
+                <div class="app-header">MEDIA REBOOT</div>
+                <div class="app-actions">
+                    <div class="action"><span>Перезагрузка</span></div>
+                </div>
+            </div>
+
+            <div class="app-card">
+                <div class="app-header">MEDIA SLEEP</div>
+                <div class="app-actions">
+                    <div class="action"><span>Сон</span></div>
+                </div>
+            </div>
+
+            <div class="app-card">
+                <div class="app-header">MEDIA LOGOFF</div>
+                <div class="app-actions">
+                    <div class="action"><span>Выход из системы</span></div>
+                </div>
+            </div>
+
+            <div class="app-card">
+                <div class="app-header">MEDIA EXIT</div>
+                <div class="app-actions">
+                    <div class="action"><span>Выход</span></div>
+                </div>
+            </div>
+
+            <div class="app-card">
+                <div class="app-header">MEDIA HOME</div>
+                <div class="app-actions">
+                    <div class="action"><span>Домой</span></div>
+                </div>
+            </div>
+
+            <div class="app-card">
+                <div class="app-header">MEDIA BACK</div>
+                <div class="app-actions">
+                    <div class="action"><span>Назад</span></div>
+                </div>
+            </div>
+
+            <div class="app-card">
+                <div class="app-header">MEDIA FORWARD</div>
+                <div class="app-actions">
+                    <div class="action"><span>Вперед</span></div>
+                </div>
+            </div>
+
+            <div class="app-card">
+                <div class="app-header">MEDIA REFRESH</div>
+                <div class="app-actions">
+                    <div class="action"><span>Обновить</span></div>
+                </div>
+            </div>
+
+            <div class="app-card">
+                <div class="app-header">MEDIA SNAPSHOT</div>
+                <div class="app-actions">
+                    <div class="action"><span>Сделать фото в приложении камеры</span></div>
+                </div>
+            </div>
+
+            <div class="app-card">
+                <div class="app-header">MEDIA PLAY</div>
+                <div class="app-actions">
+                    <div class="action"><span>Воспроизведение</span></div>
+                </div>
+            </div>
+
+            <div class="app-card">
+                <div class="app-header">MEDIA PAUSE</div>
+                <div class="app-actions">
+                    <div class="action"><span>Пауза</span></div>
+                </div>
+            </div>
+
+            <div class="app-card">
+                <div class="app-header">MEDIA PLAY_PAUSE</div>
+                <div class="app-actions">
+                    <div class="action"><span>Воспроизведение/Пауза</span></div>
+                </div>
+            </div>
+
+            <div class="app-card">
+                <div class="app-header">MEDIA NEXT_TRACK</div>
+                <div class="app-actions">
+                    <div class="action"><span>Следующий трек</span></div>
+                </div>
+            </div>
+
+            <div class="app-card">
+                <div class="app-header">MEDIA PREV_TRACK</div>
+                <div class="app-actions">
+                    <div class="action"><span>Предыдущий трек</span></div>
+                </div>
+            </div>
+
+            <div class="app-card">
+                <div class="app-header">MEDIA STOP</div>
+                <div class="app-actions">
+                    <div class="action"><span>Стоп</span></div>
+                </div>
+            </div>
+
+            <div class="app-card">
+                <div class="app-header">MEDIA EJECT</div>
+                <div class="app-actions">
+                    <div class="action"><span>Извлечь</span></div>
+                </div>
+            </div>
+
+            <div class="app-card">
+                <div class="app-header">MEDIA MUTE</div>
+                <div class="app-actions">
+                    <div class="action"><span>Без звука</span></div>
+                </div>
+            </div>
+
+            <div class="app-card">
+                <div class="app-header">MEDIA VOLUME_UP</div>
+                <div class="app-actions">
+                    <div class="action"><span>Громче</span></div>
+                </div>
+            </div>
+
+            <div class="app-card">
+                <div class="app-header">MEDIA VOLUME_DOWN</div>
+                <div class="app-actions">
+                    <div class="action"><span>Тише</span></div>
+                </div>
+            </div>
+
+            <div class="app-card">
+                <div class="app-header">MEDIA FN</div>
+                <div class="app-actions">
+                    <div class="action"><span>Fn/Globe на Mac</span></div>
+                </div>
+            </div>
+
+            <div class="app-card">
+                <div class="app-header">MEDIA BRIGHT_UP</div>
+                <div class="app-actions">
+                    <div class="action"><span>Увеличить яркость</span></div>
+                </div>
+            </div>
+
+            <div class="app-card">
+                <div class="app-header">MEDIA BRIGHT_DOWN</div>
+                <div class="app-actions">
+                    <div class="action"><span>Уменьшить яркость</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h3>Fn/Globe команды (Mac/iPad)</h3>
+    <div class="content-card">
+        <div class="apps-grid">
+            <div class="app-card">
+                <div class="app-header">GLOBE специальная_клавиша_или_символ</div>
+                <div class="app-actions">
+                    <div class="action"><span>Fn/Globe команда</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h3>Ожидание нажатия кнопки</h3>
+    <div class="content-card">
+        <div class="apps-grid">
+            <div class="app-card">
+                <div class="app-header">WAIT_FOR_BUTTON_PRESS</div>
+                <div class="app-actions">
+                    <div class="action"><span>Ждать нажатия кнопки для продолжения</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h3>ID USB устройства</h3>
+    <p>Пример: ID 1234:abcd Flipper Devices:Flipper Zero</p>
+    <p>VID и PID обязательны (hex), Производитель и Продукт опциональны (текст). Должна быть первой строкой скрипта.
+    </p>
+    <div class="content-card">
+        <div class="apps-grid">
+            <div class="app-card">
+                <div class="app-header">ID VID:PID Производитель:Продукт</div>
+                <div class="app-actions">
+                    <div class="action"><span>Установить кастомный ID USB HID устройства</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h3>Команды мыши</h3>
+    <p>Команды клика поддерживают функциональность HOLD.</p>
+    <div class="content-card">
+        <div class="apps-grid">
+            <div class="app-card">
+                <div class="app-header">LEFTCLICK</div>
+                <div class="app-actions">
+                    <div class="action"><span>Левый клик мыши</span></div>
+                </div>
+            </div>
+
+            <div class="app-card">
+                <div class="app-header">LEFT_CLICK</div>
+                <div class="app-actions">
+                    <div class="action"><span>То же, что и LEFTCLICK</span></div>
+                </div>
+            </div>
+
+            <div class="app-card">
+                <div class="app-header">RIGHTCLICK</div>
+                <div class="app-actions">
+                    <div class="action"><span>Правый клик мыши</span></div>
+                </div>
+            </div>
+
+            <div class="app-card">
+                <div class="app-header">RIGHT_CLICK</div>
+                <div class="app-actions">
+                    <div class="action"><span>То же, что и RIGHTCLICK</span></div>
+                </div>
+            </div>
+
+            <div class="app-card">
+                <div class="app-header">MOUSEMOVE x y</div>
+                <div class="app-actions">
+                    <div class="action"><span>Переместить курсор</span></div>
+                </div>
+            </div>
+
+            <div class="app-card">
+                <div class="app-header">MOUSE_MOVE x y</div>
+                <div class="app-actions">
+                    <div class="action"><span>То же, что и MOUSEMOVE</span></div>
+                </div>
+            </div>
+
+            <div class="app-card">
+                <div class="app-header">MOUSESCROLL дельта</div>
+                <div class="app-actions">
+                    <div class="action"><span>Прокрутить колесо мыши</span></div>
+                </div>
+            </div>
+
+            <div class="app-card">
+                <div class="app-header">MOUSE_SCROLL дельта</div>
+                <div class="app-actions">
+                    <div class="action"><span>То же, что и MOUSESCROLL</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
 </article>
