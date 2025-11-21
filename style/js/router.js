@@ -86,6 +86,9 @@ class Router {
       try {
           if (this.cache.has(path)) {
               this.contentEl.innerHTML = this.cache.get(path);
+              // Выполняем скрипты после вставки контента
+              await this.executeScripts(this.contentEl);
+              window.scrollTo(0, 0);
               return;
           }
 
@@ -97,6 +100,8 @@ class Router {
 
           this.cache.set(path, html);
           this.contentEl.innerHTML = html;
+
+          await this.executeScripts(this.contentEl);
 
           window.scrollTo(0, 0);
 
@@ -140,6 +145,24 @@ class Router {
 
   clearCache() {
       this.cache.clear();
+  }
+
+  executeScripts(container) {
+      const scripts = container.querySelectorAll('script');
+      scripts.forEach(oldScript => {
+          const newScript = document.createElement('script');
+          Array.from(oldScript.attributes).forEach(attr => {
+              newScript.setAttribute(attr.name, attr.value);
+          });
+          newScript.appendChild(document.createTextNode(oldScript.innerHTML));
+          oldScript.parentNode.replaceChild(newScript, oldScript);
+      });
+      
+      return new Promise(resolve => {
+          requestAnimationFrame(() => {
+              setTimeout(resolve, 50);
+          });
+      });
   }
 }
 

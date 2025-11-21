@@ -1,0 +1,123 @@
+<h1>Список участников проекта</h1>
+
+<div id="contributors-container">
+    <div class="loading-contributors">
+        <div class="spinner-border text-primary" role="status">
+            <span class="visually-hidden">Загрузка контрибьюторов...</span>
+        </div>
+        <p class="mt-3 text-muted">Загрузка списка участников...</p>
+    </div>
+</div>
+
+<script>
+    (function() {
+        const API_URL = 'https://api.github.com/repos/Flipper-Lab/flipper-lab.github.io/contributors';
+
+        function getContributionsText(count) {
+            const lastDigit = count % 10;
+            const lastTwoDigits = count % 100;
+
+            if (lastTwoDigits >= 11 && lastTwoDigits <= 19) {
+                return 'коммитов';
+            }
+
+            if (lastDigit === 1) {
+                return 'коммит';
+            } else if (lastDigit >= 2 && lastDigit <= 4) {
+                return 'коммита';
+            } else {
+                return 'коммитов';
+            }
+        }
+
+        async function loadContributors() {
+            const container = document.getElementById('contributors-container');
+            
+            if (!container) {
+                console.error('Контейнер contributors-container не найден');
+                return;
+            }
+
+            console.log('Загрузка контрибьюторов с:', API_URL);
+
+            try {
+                const response = await fetch(API_URL);
+                
+                if (!response.ok) {
+                    throw new Error(`Ошибка загрузки: ${response.status}`);
+                }
+
+                const contributors = await response.json();
+                
+                console.log('Загружено контрибьюторов:', contributors.length);
+                
+                if (!contributors || contributors.length === 0) {
+                    container.innerHTML = '<div class="empty-message">Контрибьюторы не найдены</div>';
+                    return;
+                }
+
+                const grid = document.createElement('div');
+                grid.className = 'contributors-grid';
+
+                contributors.forEach(contributor => {
+                    const card = document.createElement('div');
+                    card.className = 'contributor-card';
+
+                    const avatar = document.createElement('img');
+                    avatar.src = contributor.avatar_url;
+                    avatar.alt = contributor.login;
+                    avatar.className = 'contributor-avatar';
+                    avatar.loading = 'lazy';
+
+                    const info = document.createElement('div');
+                    info.className = 'contributor-info';
+
+                    const name = document.createElement('h3');
+                    name.className = 'contributor-name';
+                    const nameLink = document.createElement('a');
+                    nameLink.href = contributor.html_url;
+                    nameLink.target = '_blank';
+                    nameLink.rel = 'noopener noreferrer';
+                    nameLink.textContent = contributor.login;
+                    name.appendChild(nameLink);
+
+                    const stats = document.createElement('p');
+                    stats.className = 'contributor-stats';
+                    
+                    const badge = document.createElement('span');
+                    badge.className = 'contributor-badge';
+                    badge.innerHTML = `<i class="bi bi-git"></i> ${contributor.contributions} ${getContributionsText(contributor.contributions)}`;
+                    
+                    stats.appendChild(badge);
+
+                    info.appendChild(name);
+                    info.appendChild(stats);
+
+                    card.appendChild(avatar);
+                    card.appendChild(info);
+
+                    grid.appendChild(card);
+                });
+
+                container.innerHTML = '';
+                container.appendChild(grid);
+
+            } catch (error) {
+                console.error('Ошибка загрузки контрибьюторов:', error);
+                if (container) {
+                    container.innerHTML = `
+                        <div class="error-message">
+                            <h4>Ошибка загрузки данных</h4>
+                            <p>Не удалось загрузить список контрибьюторов. Пожалуйста, попробуйте позже.</p>
+                            <small>${error.message}</small>
+                        </div>
+                    `;
+                }
+            }
+        }
+
+        requestAnimationFrame(() => {
+            loadContributors();
+        });
+    })();
+</script>
